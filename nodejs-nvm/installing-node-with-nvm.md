@@ -18,19 +18,77 @@ node -v
 
 If you have Node installed, it should output Node’s version. If you don’t, you’ll see one of the two messages, depending on whether you use `bash` *or* `zsh` shell: 
 
-- `zsh: command not found: node`
 - `bash: command not found: node`
+- `zsh: command not found: node`
 
 That means that the command you are trying to run is not installed. But worry not, there are several ways to install Node.js: 
 
-1) using the macOS installer available from the Node.js website 
+1) using the macOS installer available from the Node.js [website](https://nodejs.org/en/download/) 
 2) using `homebrew` to install and update Node.js
 3) using `npm` to install and update Node.js
 
-We’ll go over each of the ways step-by-step.
+I’ll go over each way step-by-step.
 
-## 1) using the macOS installer available from the Node.js website 
+## 1) Using the macOS installer available from the Node.js website
 
+Visit the Node.js [website](https://nodejs.org/en/download/) where you can download a pre-built installer for your mac platform. 
+
+There are two types of Node.js releases: **long-term support (LTS)** and **current**. LTS releases are more polished and bug-free and will suffice for the majority of everyday users. Current releases are typically more experimental and contain the latest features, which may not be completely finished and could *occasionally* crash. You can switch between LTS and current versions by highlighting the field in the first tab. Again, the LTS version is recommended for most users. Therefore, if the LTS tab is highlighted in dark green, you can simply click on the macOS Installer option, which will download the `.pkg` installer for Node.js. 
+
+1. Download the Node.js `.pkg` Installer:
+   - Opening `node-v12.18.0.pkg`
+     - Select `Open with Installer (default)`
+     
+2. Run the `.pkg` Installer and follow the instructions that will guide you through the interface:
+   - Introduction
+     - Select `Continue`
+     
+   - License
+     - Select `Continue`
+     - Select `Agree`
+     
+   - Installation Type
+     - Select `Install`
+     - Authenticate using your macOS password to install the software
+     - Select `Install Software`
+     
+   - Summary; you should see that Node.js and `npm` were installed
+     - Select `Close`
+
+3. Double-check that Node.js was installed:
+
+```
+node -v
+```
+
+You should now see output `v12.18.0` or some other version of the software that's been just installed.
+
+## 2) Using `homebrew` to install and update Node.js
+
+Homebrew is arguably the most popular package manager for macOS and makes installing Node.js straightforward. Let's check whether you have Homebrew installed:
+
+```
+brew -v
+```
+
+If Homebrew is installed on your mac, you should see its version, for example, `Homebrew 2.3.0`. If not, you can install Homebrew via:
+
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Assuming that Homebrew is already installed, simply type:
+
+```
+brew update
+brew install node
+```
+
+And that’s all you need. Again, try `node -v` to confirm the version of Node.js installed.
+
+While using Homebrew for Node.js installation is very easy, it comes with one disadvantage. **Unfortunately, Homebrew has a specific habit of installing only the latest version of Node.js**. This could be a problem because sometimes applications require a certain versions of Node.js to work. Having the flexibility of using specific versions can help. To fix this problem, the best option to install Node.js on your mac is via `npm`.
+
+## 3) Using `npm` to install and update Node.js
 
 
 ## Install `nvm` for managing Node.js versions
