@@ -1,6 +1,36 @@
-# Installing Node.js with `nvm` to Linux & macOS & WSL
+# Installing Node.js on macOS
 
-A quick guide on how to setup Node.js development environment.
+A simple guide on how to setup Node.js development environment on macOS.
+
+Node.js is an open-source runtime environment, which allows developers to create networked applications and web-servers in JavaScript. For instance, you can use Node.js to build your blockchain.
+
+In this post, I’ll explain how to install Node.js in a macOS environment. 
+
+This post is intended for complete beginners to JavaScript or for folks switching from Python to JavaScript for their backend production. It doesn’t assume any background knowledge of JavaScript (although it doesn’t hurt to have some!). However, this tutorial will cover everything you need to know and hopefully will get you up to speed in no time!
+
+Ready? Let’s jump in.
+
+To check whether you already have Node installed, open new _Terminal_ window and type:
+
+```
+node -v
+```
+
+If you have Node installed, it should output Node’s version. If you don’t, you’ll see one of the two messages, depending on whether you use `bash` *or* `zsh` shell: 
+
+- `zsh: command not found: node`
+- `bash: command not found: node`
+
+That means that the command you are trying to run is not installed. But worry not, there are several ways to install Node.js: 
+
+1) using the macOS installer available from the Node.js website 
+2) using `homebrew` to install and update Node.js
+3) using `npm` to install and update Node.js
+
+We’ll go over each of the ways step-by-step.
+
+## 1) using the macOS installer available from the Node.js website 
+
 
 
 ## Install `nvm` for managing Node.js versions
