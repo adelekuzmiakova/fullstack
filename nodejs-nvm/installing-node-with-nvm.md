@@ -10,7 +10,7 @@ This post is intended for complete beginners to JavaScript or for folks switchin
 
 Ready? Let’s jump in.
 
-To check whether you already have Node installed, open new _Terminal_ window and type:
+To check whether you already have Node installed, open new _terminal_ window and type:
 
 ```
 node -v
@@ -25,7 +25,7 @@ That means that the command you are trying to run is not installed. But worry no
 
 1) using the macOS installer available from the Node.js [website](https://nodejs.org/en/download/) 
 2) using `homebrew` to install and update Node.js
-3) using `npm` to install and update Node.js
+3) using `nvm` to install and update Node.js
 
 I’ll go over each way step-by-step.
 
@@ -86,25 +86,24 @@ brew install node
 
 And that’s all you need. Again, try `node -v` to confirm the version of Node.js installed.
 
-While using Homebrew for Node.js installation is very easy, it comes with one disadvantage. **Unfortunately, Homebrew has a specific habit of installing only the latest version of Node.js**. This could be a problem because sometimes applications require a certain versions of Node.js to work. Having the flexibility of using specific versions can help. To fix this problem, the best option to install Node.js on your mac is via `npm`.
+While using Homebrew for Node.js installation is very easy, it comes with one disadvantage. **Unfortunately, Homebrew has a specific habit of installing only the latest version of Node.js**. This could be a problem because sometimes applications require a certain versions of Node.js to work. Having the flexibility of using specific versions can help. To fix this problem, the best option to install Node.js is via `nvm`.
 
-## 3) Using `npm` to install and update Node.js
+## 3) Using `nvm` to install and update Node.js
 
+Node Version Manager, [nvm](https://github.com/nvm-sh/nvm), is a script to manage multiple active node.js versions. 
 
-## Install `nvm` for managing Node.js versions
+1. Open new _terminal_ window
+2. Run `nvm` install script:
 
-[nvm](https://github.com/nvm-sh/nvm) allows installing several versions of Node.js to the same system. Sometimes applications require a certain versions of Node.js to work. Having the flexibility of using specific versions can help.
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
 
-1. Open new _Terminal_ window.
-2. Run [nvm](https://github.com/nvm-sh/nvm) installer
-   - … with _either_ `curl` *or* `wget`, depending on what your computer has available.
-     - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`
-     - `wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`
-   - The script clones the nvm repository to `~/.nvm` and adds the source line to your profile (`~/.bash_profile`, `~/.zshrc,` `~/.profile,` or `~/.bashrc`). (You can add the source loading line manually, if the automated install tool does not add it for you.)
+- The script clones the nvm repository to `~/.nvm` and adds the source line to your profile (`~/.bash_profile`, `~/.zshrc,` `~/.profile,` or `~/.bashrc`). Note that you can add the source loading line manually:
 
      ```sh
      export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
      ```
 
    - Another option: when you have consistent directory location between systems, following example Bash/Zsh configuration allows to load `nvm` when the directory exists.
@@ -228,25 +227,4 @@ If you have older npm packages with compiled native extensions, recompiling nati
 cd PROJECT_NAME
 npm rebuild
 ```
-
-
-## Notes about this documentation
-
-[@d2s](https://github.com/d2s "GitHub profile of Daniel Schildt") tested older versions of these install instructions with:
-
-- [Debian 10](https://www.debian.org/News/2019/20190706)
-- [Ubuntu on WSL (Windows Subsystem for Linux)](https://docs.microsoft.com/en-us/windows/wsl/about)
-- [Ubuntu 18.04 LTS](http://releases.ubuntu.com/bionic/)
-- [Ubuntu 17.04](http://releases.ubuntu.com/xenial/)
-- [Ubuntu 16.04 LTS](http://releases.ubuntu.com/xenial/)
-- [Ubuntu 14.04.3 LTS](http://releases.ubuntu.com/trusty/)
-- [macOS 10.14.6 (Mojave)](https://apple.wikia.com/wiki/MacOS_10.14.6)
-- [macOS 10.13.6 (High Sierra)](https://apple.wikia.com/wiki/MacOS_10.13.6)
-- [macOS 10.12.6 (Sierra)](https://apple.wikia.com/wiki/MacOS_10.12.6)
-- [OS X 10.11.6 (El Capitan)](https://apple.wikia.com/wiki/OS_X_10.11.6)
-
-
-## Contributions
-
-If you have improvement suggestions to make these instructions simpler & better, post a comment under the [original Gist by @d2s](https://gist.github.com/d2s/372b5943bce17b964a79 "Installing Node.js to Linux & macOS & WSL with nvm") with your documentation improvement suggestions. If you are reading a forked version of the document, check the original Gist for a more recent instructions.
 
