@@ -95,7 +95,10 @@ Node Version Manager, [nvm](https://github.com/nvm-sh/nvm), is a script to manag
 1. Open new _terminal_ window
 2. Run `nvm` install script
    - The script clones the nvm repository to `~/.nvm` and adds the source lines to your profile (`~/.bash_profile`, `~/.zshrc,` `~/.profile,` or `~/.bashrc`):
-     ```curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash```
+   
+     ```
+     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+     ```
 
    - You can also add the source lines manually:
        ```  
@@ -110,7 +113,7 @@ Node Version Manager, [nvm](https://github.com/nvm-sh/nvm), is a script to manag
  
 4. Verify the installation
 
-       ```command -v nvm```
+       `command -v nvm`
 
 This should print `nvm` if the installation was successful. 
 
