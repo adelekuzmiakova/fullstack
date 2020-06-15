@@ -103,30 +103,22 @@ Node Version Manager, [nvm](https://github.com/nvm-sh/nvm), is a script to manag
        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
        ```
 
-   - Alternatively, if you have consistent directory location between systems, the following improves the reliability of rest of your configuration even when `nvm` does not exist on a specific system.
-       ```
-       if [ -d "$HOME/.nvm" ]; then
-       # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-       export NVM_DIR="$HOME/.nvm"
-
-       # This loads nvm
-       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-       # This loads nvm bash_completion
-       [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-       fi
-       ```
-
 3. Reload the shell configuration, depending on whether you use `bash` *or* `zsh` shell
 
-       `source ~/.bashrc`
-       `source ~/.zshrc`
+     - ```source ~/.bashrc```
+     - ```source ~/.zshrc```
  
-4. Verify installation
+4. Verify the installation
 
-       `command -v nvm`
+       ```command -v nvm```
 
 This should print `nvm` if the installation was successful. 
+
+5. Use `nvm` to install Node.js
+     - List the options:
+
+       > $ nvm <kbd>Tab</kbd>
+
 
 
 
