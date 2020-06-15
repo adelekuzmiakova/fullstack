@@ -153,9 +153,10 @@ Node Version Manager, [nvm](https://github.com/nvm-sh/nvm), is a script to manag
       ```
       nvm install-latest-npm
       ```
+      Please note that this installs the latest working `npm` on the node version that you're *currently using*, such as `~/.nvm/versions/node/[your-version]/lib/node_modules/npm`. This is something you want because you want to update the `npm` and packages only for that Node.js version which is associated with a specific project and its requirements.
 
       - List globally installed packages: `npm ls -g --depth=0.`
-      - Update all globally installed packages: `npm update -g`
+      - Update all globally installed packages: `npm update -g`. Again, note that this will update packages inside the path of your active Node.js version instead of the system global path.
 
    
         
