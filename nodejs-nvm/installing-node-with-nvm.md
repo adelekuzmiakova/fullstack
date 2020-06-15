@@ -116,11 +116,11 @@ Node Version Manager, [nvm](https://github.com/nvm-sh/nvm), is a script to manag
  
 4. Verify the installation
 
-```sh
-command -v nvm
-```
+     ```sh
+     command -v nvm
+     ```
 
-This should print `nvm` if the installation was successful. 
+      This should print `nvm` if the installation was successful. 
 
 
 5. Use `nvm` to install Node.js
@@ -143,15 +143,17 @@ This should print `nvm` if the installation was successful.
    
    
  6. Use `nvm` to install `npm`
- 
-`npm` stands for [Node Package Manager](https://www.npmjs.com/) is a package management framework for Node.js. It provides a command line utility tool to install Node.js libraries and manage their versions and dependencies. `npm` is analogous to `rubygems` in Ruby or `pip` in Python. 
-   
-To install `npm`, use the following command:
 
-```
-nvm install-latest-npm
-```
+   `npm` stands for [Node Package Manager](https://www.npmjs.com/) is a package management framework for Node.js. It          
+   provides a command line utility tool to install Node.js libraries and manage their versions and dependencies. `npm` is  
+   analogous to `rubygems` in Ruby or `pip` in Python. 
    
+   To install `npm`, use the following command:
+
+   ```
+   nvm install-latest-npm
+   ```
+
    - List globally installed packages: `npm ls -g --depth=0.`
    - Update all globally installed packages: `npm update -g`
 
