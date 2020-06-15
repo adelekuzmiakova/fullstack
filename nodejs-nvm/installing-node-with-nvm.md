@@ -86,18 +86,21 @@ brew install node
 
 And that’s all you need. Again, try `node -v` to confirm the version of Node.js installed.
 
-While using Homebrew for Node.js installation is very easy, it comes with one disadvantage. **Unfortunately, Homebrew has a specific habit of installing only the latest version of Node.js**. This could be a problem because sometimes applications require a certain versions of Node.js to work. Having the flexibility of using specific versions can be an asset. To fix this problem, the best option to install Node.js is via `nvm`.
+While using Homebrew for Node.js installation is very easy, it comes with one disadvantage. **Unfortunately, Homebrew has a specific habit of installing only the latest version of Node.js**. This could be a problem because sometimes applications require a certain version of Node.js to work. Having the flexibility of using specific versions can be an asset. To fix this problem, the best option to install Node.js is via `nvm`.
 
-## 3) Using `nvm` to install and update Node.js
+## 3) Using `nvm` to install and update Node.js (recommended)
 
 Node Version Manager, [nvm](https://github.com/nvm-sh/nvm), is a script to manage multiple active node.js versions. 
 
 1. Open new _terminal_ window
 2. Run `nvm` install script
-   - The script clones the nvm repository to `~/.nvm` and adds the source lines to your profile (`~/.bash_profile`, `~/.zshrc,` `~/.profile,` or `~/.bashrc`):
+   - The script clones the nvm repository to `~/.nvm` and adds the source lines to your profile (`~/.bash_profile`, `~/.zshrc,` `~/.profile,` or `~/.bashrc`). You can use either `curl` or `wget`:
    
      ```
      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+     ```
+     ```
+     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
      ```
 
    - You can also add the source lines manually:
@@ -119,6 +122,7 @@ command -v nvm
 
 This should print `nvm` if the installation was successful. 
 
+
 5. Use `nvm` to install Node.js
 
    - List the options: 
@@ -126,13 +130,28 @@ This should print `nvm` if the installation was successful.
        
      ![alt text](assets/nvm-summary.png)
 
-   - List all installed versions of Node.js: `nvm ls`
+   - List all installed versions of Node.js: `nvm ls`. It should print an output like this: 
+     ![alt text](assets/nvm-list.png)
    - Download, compile, and install the latest release of node: `nvm install node` # "node" is an alias for the latest version
    - Install the specific version: `nvm install v12.18.0`
    - Next, to *use* the specific version of Node that you just installed: `nvm use v12.18.0` or something else
+   - Print the path to the executable to where it was installed: `nvm which 12.18.0`
+   - Change the default Node.js version to let's say 10.20.1: `nvm alias default 10.16.3`
    - Migrate packages from a previous Node.js version: `nvm install node --reinstall-packages-from=node`, for example: `nvm install v12.18.0 --reinstall-packages-from=v10.20.1`
    - Delete an older version: `nvm uninstall v10.20.1`
    - Install and use the LTS version: `nvm install --lts` and `nvm use --lts`
+   
+   
+ 6. Use `nvm` to install `npm`
+ 
+`npm` stands for [Node Package Manager](https://www.npmjs.com/) is a package management framework for Node.js. It provides a command line utility tool to install Node.js libraries and manage their versions and dependencies. `npm` is analogous to `rubygems` in Ruby or `pip` in Python. 
+   
+To install `npm`, use the following command:
+
+```
+nvm install-latest-npm
+```
+   
    - List globally installed packages: `npm ls -g --depth=0.`
    - Update all globally installed packages: `npm update -g`
 
