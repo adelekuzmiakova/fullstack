@@ -1,6 +1,6 @@
 # Installing Node.js on macOS
 
-A simple guide on how to setup Node.js development environment on macOS.
+> A simple guide on how to setup Node.js development environment on macOS.
 
 Node.js is an open-source runtime environment, which allows developers to create networked applications and web-servers in JavaScript. For instance, you can use Node.js to build your blockchain.
 
@@ -61,7 +61,7 @@ There are two types of Node.js releases: **long-term support (LTS)** and **curre
 node -v
 ```
 
-You should now see output `v12.18.0` or some other version of the software that's been just installed.
+You should now see output `v12.18.0` or some other version of the software that's just been installed.
 
 ## 2) Using `homebrew` to install and update Node.js
 
@@ -77,7 +77,7 @@ If Homebrew is installed on your mac, you should see its version, for example, `
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Assuming that Homebrew is already installed, simply type:
+Assuming that Homebrew is already installed, type:
 
 ```
 brew update
@@ -86,31 +86,26 @@ brew install node
 
 And that’s all you need. Again, try `node -v` to confirm the version of Node.js installed.
 
-While using Homebrew for Node.js installation is very easy, it comes with one disadvantage. **Unfortunately, Homebrew has a specific habit of installing only the latest version of Node.js**. This could be a problem because sometimes applications require a certain versions of Node.js to work. Having the flexibility of using specific versions can help. To fix this problem, the best option to install Node.js is via `nvm`.
+While using Homebrew for Node.js installation is very easy, it comes with one disadvantage. **Unfortunately, Homebrew has a specific habit of installing only the latest version of Node.js**. This could be a problem because sometimes applications require a certain versions of Node.js to work. Having the flexibility of using specific versions can be an asset. To fix this problem, the best option to install Node.js is via `nvm`.
 
 ## 3) Using `nvm` to install and update Node.js
 
 Node Version Manager, [nvm](https://github.com/nvm-sh/nvm), is a script to manage multiple active node.js versions. 
 
 1. Open new _terminal_ window
-2. Run `nvm` install script:
+2. Run `nvm` install script
+   - The script clones the nvm repository to `~/.nvm` and adds the source lines to your profile (`~/.bash_profile`, `~/.zshrc,` `~/.profile,` or `~/.bashrc`):
+     ```curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash```
 
-```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-```
+   - You can also add the source lines manually:
+       ```  
+       export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+       ```
 
-- The script clones the nvm repository to `~/.nvm` and adds the source line to your profile (`~/.bash_profile`, `~/.zshrc,` `~/.profile,` or `~/.bashrc`). Note that you can add the source loading line manually:
-
-     ```sh
-     export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
-     ```
-
-   - Another option: when you have consistent directory location between systems, following example Bash/Zsh configuration allows to load `nvm` when the directory exists.
-   This allows more consistent sharing of your shell configuration between systems, improving reliability of rest of your configuration even when nvm does not exist on a specific system.
-
-     ```sh
-     if [ -d "$HOME/.nvm" ]; then
+   - Alternatively, if you have consistent directory location between systems, the following improves the reliability of rest of your configuration even when `nvm` does not exist on a specific system.
+       ```
+       if [ -d "$HOME/.nvm" ]; then
        # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
        export NVM_DIR="$HOME/.nvm"
 
@@ -119,14 +114,21 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
        # This loads nvm bash_completion
        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-     fi
-     ```
+       fi
+       ```
 
-3. If everything went well, you should now either open a new Terminal window/tab, or reload the shell configuration by running:
-   - `source ~/.bashrc`
+3. Reload the shell configuration, depending on whether you use `bash` *or* `zsh` shell
+
+       `source ~/.bashrc`
+       `source ~/.zshrc`
+ 
 4. Verify installation
-   - To check if nvm command got installed, run:
-     - `command -v nvm`
+
+       `command -v nvm`
+
+This should print `nvm` if the installation was successful. 
+
+
 
 ## Install Node.js with `nvm`
 
