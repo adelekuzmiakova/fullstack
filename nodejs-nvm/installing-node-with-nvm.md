@@ -158,7 +158,7 @@ Node Version Manager, [nvm](https://github.com/nvm-sh/nvm), is a script to manag
       - List globally installed packages: `npm ls -g --depth=0.`
       - Update all globally installed packages: `npm update -g`. Again, note that this will update packages inside the path of your active Node.js version instead of the system global path.
 
-   
+All in all, the main benefit of `npm` is its flexibility when it comes to customizing different Node.js versions, which might be needed if you are hopping between different projects and their requirements.
         
         
 
