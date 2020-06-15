@@ -113,115 +113,30 @@ Node Version Manager, [nvm](https://github.com/nvm-sh/nvm), is a script to manag
  
 4. Verify the installation
 
-       `command -v nvm`
+```sh
+command -v nvm
+```
 
 This should print `nvm` if the installation was successful. 
 
 5. Use `nvm` to install Node.js
-     - List the options:
 
-       > $ nvm <kbd>Tab</kbd>
+   - List the options: 
+     > $ nvm <kbd>Tab</kbd>
+       
+     ![alt text](assets/nvm-summary.png)
 
+   - List all installed versions of Node.js: `nvm ls`
+   - Download, compile, and install the latest release of node: `nvm install node` # "node" is an alias for the latest version
+   - Install the specific version: `nvm install v12.18.0`
+   - Next, to *use* the specific version of Node that you just installed: `nvm use v12.18.0` or something else
+   - Migrate packages from a previous Node.js version: `nvm install node --reinstall-packages-from=node`, for example: `nvm install v12.18.0 --reinstall-packages-from=v10.20.1`
+   - Delete an older version: `nvm uninstall v10.20.1`
+   - Install and use the LTS version: `nvm install --lts` and `nvm use --lts`
+   - List globally installed packages: `npm ls -g --depth=0.`
+   - Update all globally installed packages: `npm update -g`
 
-
-
-## Install Node.js with `nvm`
-
-1. List installed Node.js versions with:
-   - `nvm ls`
-2. **Install latest LTS Version of [Node.js](https://nodejs.org/en/)** (for production quality applications)
-   - `nvm install v12.18.0`
-3. Install latest [Node.js](https://nodejs.org/en/) Current release (for testing new feature improvements)
-   - `nvm install v14.4.0`
-4. Install previous LTS release of [Node.js](https://nodejs.org/en/) LTS release (if you need to run older applications)
-   - `nvm install v10.21.0`
-5. If you want to change the default Node version later, you can run a command to adjust it.
-    - `nvm alias default v12.18.0` [changelog](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.18.0) (for production quality applications)
-    - `nvm alias default v14.4.0` [changelog](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.4.0) (if you use Node.js features from the Current release)
-    - `nvm alias default v10.21.0` [changelog](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V10.md#10.21.0) (if you need to use old version of Node.js for older projects)
-
-You can select Node.js version by running `nvm use v12.18.0` (or another version number). Another alternative: create a small Bash shell script to enable the right environment variables for your project.
-
-Read the Node.js [Long Term Support (LTS) schedule](https://nodejs.org/en/about/releases/ "Releases | Node.js") to have more understanding of their release roadmap. List of all [previous releases](https://nodejs.org/en/download/releases/ "Previous Releases | Node.js") is also useful for finding details about Node.js release history.
-
-[npm](https://www.npmjs.com/) package repository has a lot of packages to discover.
-Have a good time with the freshly installed tools.
-
-
-## Migrating packages from a previous Node.js version
-
-If you already have existing Node.js version via `nvm`, you can migrate older packages from the installed Node.js versions.
-
-- Open new Terminal window (to make sure you have latest Node.js version active in your command line environment).
-- Before running next commands, remember to switch to the right version of Node with `nvm use` command.
-  For example:
-  - `nvm use v12.18.0`
-  - `nvm use v14.4.0`
-  - `nvm use v10.21.0`
-- Linking global packages from previous version:
-  - `nvm reinstall-packages v12.17.0`
-  - `nvm reinstall-packages v13.14.0`
-  - `nvm reinstall-packages v14.3.0`
-  - `nvm reinstall-packages v10.20.1`
-
-### Deleting old Node.js versions
-
-- Check installed Node.js versions with:
-  - `nvm ls`
-- Delete an older version (if you don't use it in some of your projects):
-  - `nvm uninstall v12.17.0`
-  - `nvm uninstall v13.14.0`
-  - `nvm uninstall v14.2.0`
-  - `nvm uninstall v10.20.1`
-
-### Updating outdated packages
-
-#### List of globally installed top level packages
-
-```sh
-npm ls -g --depth=0.
-```
-
-#### List outdated global packages
-
-```sh
-npm outdated -g --depth=0.
-```
-
-#### Updating all globally installed npm packages
-
-```sh
-npm update -g
-```
-
-#### CLI aliases for Bash & Zsh environments
-
-Example configuration for your Bash & Zsh command line environments.
-
-```sh
-
-# -----------------------------------------------------------
-# npm helpers
-# -----------------------------------------------------------
-
-# List what (top level) packages are installed globally
-alias list-installed-npm-packages="npm ls -g --depth=0."
-
-# List what globally installed packages are outdated
-alias list-outdated-npm-packages="npm outdated -g --depth=0."
-
-# Update outdated globally installed npm packages
-alias update-npm-packages="npm update -g"
-
-```
-
-
-#### Fixing old package versions
-
-If you have older npm packages with compiled native extensions, recompiling native extensions can improve compatibility with the new Node.js version. Go to your project’s root directory, and run `npm rebuild` command.
-
-```sh
-cd PROJECT_NAME
-npm rebuild
-```
+   
+        
+        
 
