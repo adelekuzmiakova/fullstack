@@ -2,7 +2,7 @@
   "name": "hashing",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "hashing.js",
   "dependencies": {
     "crypto-js": "^4.0.0"
   },
